@@ -16,8 +16,8 @@ module.exports = {
         {
           task: "Feed Crookshanks",
           deadline: "every morning",
-          todoListId: 2,
           important: true,
+          todoListId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

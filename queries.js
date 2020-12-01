@@ -2,23 +2,16 @@ const User = require("./models").user
 const TodoList = require("./models").todoList
 const TodoItem = require("./models").todoItem
 
-async function listwithUser(){
-    const users = await TodoList.findAll({include: {model: User}})
-    return users.map(user => user.get({plain: true}))
+async function listWithUsers(){
+    const todolists = await TodoList.findAll({include: {model: User}})
+    return todolists.map(data => data.get({plain: true}))
 }
 
-// listwithUser().then(user => console.log(user))
+// listWithUsers().then(data => console.log(data))
 
-async function itemsWithLists(){
-    const items = await TodoItem.findAll({include: {model: TodoList}})
-    return items.map(item => item.get({plain: true}))
+async function itemsAndList(){
+    const todoitems = await TodoItem.findAll({include: {model: TodoList}})
+    return todoitems.map(data => data.get({plain: true}))
 }
 
-// itemsWithLists().then(item => console.log(item))
-
-async function getUsers(){
-    const users = await User.findAll()
-    return users.map(user => user.get({ plain: true }));
-}
-
-getUsers().then(user => console.log(user))
+itemsAndList().then(data => console.log(data))
